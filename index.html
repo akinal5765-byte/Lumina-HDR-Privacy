@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐私政策 - Layerlight</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1d1d1f;
+            --secondary: #6e6e73;
+            --accent: #0066cc;
+            --border: #d2d2d7;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1d1d1f;
+                --text: #f5f5f7;
+                --secondary: #a1a1a6;
+                --accent: #2997ff;
+                --border: #424245;
+            }
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 24px;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        h1 { font-size: 28px; font-weight: 600; margin-bottom: 8px; }
+        .update-date { color: var(--secondary); font-size: 14px; margin-bottom: 32px; }
+        h2 { font-size: 20px; font-weight: 600; margin: 32px 0 16px; }
+        p { margin-bottom: 16px; color: var(--text); }
+        .highlight-box {
+            background: rgba(0, 102, 204, 0.08);
+            border-left: 4px solid var(--accent);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+        .highlight-box p { margin: 0; }
+        ul { padding-left: 24px; margin-bottom: 16px; }
+        li { margin-bottom: 8px; }
+        .feature-grid {
+            display: grid;
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px;
+            background: rgba(0, 0, 0, 0.03);
+            border-radius: 12px;
+        }
+        @media (prefers-color-scheme: dark) {
+            .feature-item { background: rgba(255, 255, 255, 0.05); }
+            .highlight-box { background: rgba(41, 151, 255, 0.1); }
+        }
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        .feature-icon.blue { background: rgba(0, 122, 255, 0.15); }
+        .feature-icon.orange { background: rgba(255, 149, 0, 0.15); }
+        .feature-icon.green { background: rgba(52, 199, 89, 0.15); }
+        .feature-content h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+        .feature-content p { font-size: 14px; color: var(--secondary); margin: 0; }
+        .contact { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); }
+        .contact a { color: var(--accent); text-decoration: none; }
+        footer { margin-top: 48px; text-align: center; color: var(--secondary); font-size: 13px; }
+    </style>
+</head>
+<body>
+    <h1>隐私政策</h1>
+    <p class="update-date">最后更新：2025 年 12 月 9 日</p>
+
+    <div class="highlight-box">
+        <p><strong>核心承诺：</strong>Layerlight 尊重您的隐私。我们的应用完全在本地运行，不收集、不存储、不上传任何用户数据。</p>
+    </div>
+
+    <h2>数据与隐私</h2>
+    
+    <div class="feature-grid">
+        <div class="feature-item">
+            <div class="feature-icon blue">📱</div>
+            <div class="feature-content">
+                <h3>本地处理</h3>
+                <p>所有照片编辑均在您的设备上完成，不会离开您的手机。</p>
+            </div>
+        </div>
+        
+        <div class="feature-item">
+            <div class="feature-icon orange">☁️</div>
+            <div class="feature-content">
+                <h3>无云端上传</h3>
+                <p>您的照片不会被上传到任何服务器。我们没有服务器，也不接收您的任何数据。</p>
+            </div>
+        </div>
+        
+        <div class="feature-item">
+            <div class="feature-icon green">🙈</div>
+            <div class="feature-content">
+                <h3>无用户追踪</h3>
+                <p>我们不收集任何个人信息、使用数据或分析数据。没有第三方 SDK 追踪您的行为。</p>
+            </div>
+        </div>
+    </div>
+
+    <h2>我们收集的数据</h2>
+    <p><strong>无。</strong></p>
+    <p>Layerlight 不收集任何形式的用户数据，包括但不限于：</p>
+    <ul>
+        <li>个人身份信息（姓名、邮箱、电话等）</li>
+        <li>设备标识符</li>
+        <li>位置信息</li>
+        <li>使用统计或分析数据</li>
+        <li>照片或媒体文件</li>
+    </ul>
+
+    <h2>权限使用说明</h2>
+    <p>Layerlight 会请求以下权限，仅用于核心功能：</p>
+    <ul>
+        <li><strong>照片库访问：</strong>用于从相册导入照片进行编辑，以及将编辑后的照片保存回相册。照片数据仅在本地处理，不会离开您的设备。</li>
+    </ul>
+
+    <h2>应用内购买</h2>
+    <p>Layerlight 提供订阅和一次性购买选项。所有交易均通过 Apple 的 App Store 处理，我们不直接接触您的支付信息。有关 Apple 如何处理交易数据，请参阅 <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple 隐私政策</a>。</p>
+
+    <h2>第三方服务</h2>
+    <p>Layerlight 不使用任何第三方分析、广告或追踪服务。</p>
+
+    <h2>儿童隐私</h2>
+    <p>Layerlight 不针对 13 岁以下儿童，也不会有意收集儿童的任何信息。</p>
+
+    <h2>隐私政策更新</h2>
+    <p>如果我们更新此隐私政策，将在此页面发布新版本并更新日期。重大变更将通过应用内通知告知用户。</p>
+
+    <div class="contact">
+        <h2>联系我们</h2>
+        <p>如果您对本隐私政策有任何疑问，请通过以下方式联系我们：</p>
+        <p>📧 邮箱：<a href="mailto:akinal5765@gmail.com">akinal5765@gmail.com</a></p>
+    </div>
+
+    <footer>
+        <p>© 2025 Layerlight. All rights reserved.</p>
+    </footer>
+</body>
+</html>
