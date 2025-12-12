@@ -132,6 +132,10 @@
             background: rgba(52, 199, 89, 0.15);
         }
 
+        .feature-icon.purple {
+            background: rgba(175, 82, 222, 0.15);
+        }
+
         .feature-content h3 {
             font-size: 16px;
             font-weight: 600;
@@ -161,85 +165,260 @@
             color: var(--secondary);
             font-size: 13px;
         }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .lang-switch {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            color: var(--accent);
+            z-index: 100;
+        }
+
+        .lang-switch:hover {
+            background: rgba(0, 102, 204, 0.08);
+        }
+
+        .en {
+            display: none;
+        }
+
+        html[lang="en"] .zh {
+            display: none;
+        }
+
+        html[lang="en"] .en {
+            display: block;
+        }
+
+        html[lang="en"] .en-inline {
+            display: inline;
+        }
+
+        html[lang="en"] .zh-inline {
+            display: none;
+        }
+
+        .en-inline {
+            display: none;
+        }
+
+        .zh-inline {
+            display: inline;
+        }
     </style>
 </head>
 
 <body>
-    <h1>隐私政策</h1>
-    <p class="update-date">最后更新：2025 年 12 月 9 日</p>
+    <button class="lang-switch" onclick="toggleLang()">
+        <span class="zh-inline">English</span>
+        <span class="en-inline">中文</span>
+    </button>
+
+    <h1>
+        <span class="zh">隐私政策</span>
+        <span class="en">Privacy Policy</span>
+    </h1>
+    <p class="update-date">
+        <span class="zh">最后更新：2025 年 12 月 12 日</span>
+        <span class="en">Last updated: December 12, 2025</span>
+    </p>
 
     <div class="highlight-box">
-        <p><strong>核心承诺：</strong>Layerlight 尊重您的隐私。我们的应用完全在本地运行，不收集、不存储、不上传任何用户数据。</p>
+        <p>
+            <span class="zh"><strong>核心承诺：</strong>Layerlight 尊重您的隐私。我们的应用完全在本地运行，不收集、不存储、不上传任何用户数据。</span>
+            <span class="en"><strong>Our Commitment:</strong> Layerlight respects your privacy. Our app runs entirely on
+                your device and does not collect, store, or upload any user data.</span>
+        </p>
     </div>
 
-    <h2>数据与隐私</h2>
+    <h2>
+        <span class="zh">数据与隐私</span>
+        <span class="en">Data & Privacy</span>
+    </h2>
 
     <div class="feature-grid">
         <div class="feature-item">
             <div class="feature-icon blue">📱</div>
             <div class="feature-content">
-                <h3>本地处理</h3>
-                <p>所有照片编辑均在您的设备上完成，不会离开您的手机。</p>
+                <h3>
+                    <span class="zh">本地处理</span>
+                    <span class="en">On-Device Processing</span>
+                </h3>
+                <p>
+                    <span class="zh">所有照片编辑均在您的设备上完成，不会离开您的手机。</span>
+                    <span class="en">All photo editing happens directly on your device and never leaves your
+                        phone.</span>
+                </p>
             </div>
         </div>
 
         <div class="feature-item">
             <div class="feature-icon orange">☁️</div>
             <div class="feature-content">
-                <h3>无云端上传</h3>
-                <p>您的照片不会被上传到任何服务器。我们没有服务器，也不接收您的任何数据。</p>
+                <h3>
+                    <span class="zh">无云端上传</span>
+                    <span class="en">No Cloud Upload</span>
+                </h3>
+                <p>
+                    <span class="zh">您的照片不会被上传到任何服务器。我们没有服务器，也不接收您的任何数据。</span>
+                    <span class="en">Your photos are never uploaded to any server. We don't have servers and don't
+                        receive any of your data.</span>
+                </p>
             </div>
         </div>
 
         <div class="feature-item">
             <div class="feature-icon green">🙈</div>
             <div class="feature-content">
-                <h3>无用户追踪</h3>
-                <p>我们不收集任何个人信息、使用数据或分析数据。没有第三方 SDK 追踪您的行为。</p>
+                <h3>
+                    <span class="zh">无用户追踪</span>
+                    <span class="en">No User Tracking</span>
+                </h3>
+                <p>
+                    <span class="zh">我们不收集任何个人信息、使用数据或分析数据。没有第三方 SDK 追踪您的行为。</span>
+                    <span class="en">We do not collect any personal information, usage data, or analytics. No
+                        third-party SDKs track your behavior.</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <div class="feature-icon purple">🌐</div>
+            <div class="feature-content">
+                <h3>
+                    <span class="zh">网络使用</span>
+                    <span class="en">Network Usage</span>
+                </h3>
+                <p>
+                    <span class="zh">仅用于 App Store 价格更新与交易处理。核心功能无需网络连接。</span>
+                    <span class="en">Only used for App Store price updates and transaction processing. Core features
+                        work offline.</span>
+                </p>
             </div>
         </div>
     </div>
 
-    <h2>我们收集的数据</h2>
-    <p><strong>无。</strong></p>
-    <p>Layerlight 不收集任何形式的用户数据，包括但不限于：</p>
+    <h2>
+        <span class="zh">我们收集的数据</span>
+        <span class="en">Data We Collect</span>
+    </h2>
+    <p><strong><span class="zh">无。</span><span class="en">None.</span></strong></p>
+    <p>
+        <span class="zh">Layerlight 不收集任何形式的用户数据，包括但不限于：</span>
+        <span class="en">Layerlight does not collect any user data, including but not limited to:</span>
+    </p>
     <ul>
-        <li>个人身份信息（姓名、邮箱、电话等）</li>
-        <li>设备标识符</li>
-        <li>位置信息</li>
-        <li>使用统计或分析数据</li>
-        <li>照片或媒体文件</li>
+        <li><span class="zh">个人身份信息（姓名、邮箱、电话等）</span><span class="en">Personal information (name, email, phone,
+                etc.)</span></li>
+        <li><span class="zh">设备标识符</span><span class="en">Device identifiers</span></li>
+        <li><span class="zh">位置信息</span><span class="en">Location information</span></li>
+        <li><span class="zh">使用统计或分析数据</span><span class="en">Usage statistics or analytics</span></li>
+        <li><span class="zh">照片或媒体文件</span><span class="en">Photos or media files</span></li>
     </ul>
 
-    <h2>权限使用说明</h2>
-    <p>Layerlight 会请求以下权限，仅用于核心功能：</p>
+    <h2>
+        <span class="zh">权限使用说明</span>
+        <span class="en">Permission Usage</span>
+    </h2>
+    <p>
+        <span class="zh">Layerlight 会请求以下权限，仅用于核心功能：</span>
+        <span class="en">Layerlight requests the following permissions, used only for core functionality:</span>
+    </p>
     <ul>
-        <li><strong>照片库访问：</strong>用于从相册导入照片进行编辑，以及将编辑后的照片保存回相册。照片数据仅在本地处理，不会离开您的设备。</li>
-        <li><strong>网络访问：</strong>应用仅在初始化“应用内购买”服务时需要网络连接，以便从 Apple 服务器获取最新的商品价格和处理订阅/交易状态。除此以外，应用不会发起任何网络请求。</li>
+        <li>
+            <span class="zh"><strong>照片库访问：</strong>用于从相册导入照片进行编辑，以及将编辑后的照片保存回相册。照片数据仅在本地处理，不会离开您的设备。</span>
+            <span class="en"><strong>Photo Library Access:</strong> Used to import photos for editing and save edited
+                photos back to your library. Photo data is processed locally and never leaves your device.</span>
+        </li>
+        <li>
+            <span class="zh"><strong>网络访问：</strong>应用仅在初始化"应用内购买"服务时需要网络连接，以便从 Apple
+                服务器获取最新的商品价格和处理订阅/交易状态。除此以外，应用不会发起任何网络请求。</span>
+            <span class="en"><strong>Network Access:</strong> The app only requires network connectivity when
+                initializing In-App Purchase services to fetch the latest prices from Apple's servers and process
+                subscription/transaction status. Beyond this, the app makes no network requests.</span>
+        </li>
     </ul>
 
-    <h2>应用内购买</h2>
-    <p>Layerlight 提供订阅和一次性购买选项。所有交易均通过 Apple 的 App Store 处理，我们不直接接触您的支付信息。有关 Apple 如何处理交易数据，请参阅 <a
-            href="https://www.apple.com/legal/privacy/" target="_blank">Apple 隐私政策</a>。</p>
+    <h2>
+        <span class="zh">应用内购买</span>
+        <span class="en">In-App Purchases</span>
+    </h2>
+    <p>
+        <span class="zh">Layerlight 提供订阅和一次性购买选项。所有交易均通过 Apple 的 App Store 处理，我们不直接接触您的支付信息。有关 Apple 如何处理交易数据，请参阅 <a
+                href="https://www.apple.com/legal/privacy/" target="_blank">Apple 隐私政策</a>。</span>
+        <span class="en">Layerlight offers subscription and one-time purchase options. All transactions are processed
+            through Apple's App Store, and we do not have direct access to your payment information. For how Apple
+            handles transaction data, see <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple's Privacy
+                Policy</a>.</span>
+    </p>
 
-    <h2>第三方服务</h2>
-    <p>Layerlight 不使用任何第三方分析、广告或追踪服务。</p>
+    <h2>
+        <span class="zh">第三方服务</span>
+        <span class="en">Third-Party Services</span>
+    </h2>
+    <p>
+        <span class="zh">Layerlight 不使用任何第三方分析、广告或追踪服务。</span>
+        <span class="en">Layerlight does not use any third-party analytics, advertising, or tracking services.</span>
+    </p>
 
-    <h2>儿童隐私</h2>
-    <p>Layerlight 不针对 13 岁以下儿童，也不会有意收集儿童的任何信息。</p>
+    <h2>
+        <span class="zh">儿童隐私</span>
+        <span class="en">Children's Privacy</span>
+    </h2>
+    <p>
+        <span class="zh">Layerlight 不针对 13 岁以下儿童，也不会有意收集儿童的任何信息。</span>
+        <span class="en">Layerlight is not directed at children under 13 and does not knowingly collect any information
+            from children.</span>
+    </p>
 
-    <h2>隐私政策更新</h2>
-    <p>如果我们更新此隐私政策，将在此页面发布新版本并更新日期。重大变更将通过应用内通知告知用户。</p>
+    <h2>
+        <span class="zh">隐私政策更新</span>
+        <span class="en">Policy Updates</span>
+    </h2>
+    <p>
+        <span class="zh">如果我们更新此隐私政策，将在此页面发布新版本并更新日期。重大变更将通过应用内通知告知用户。</span>
+        <span class="en">If we update this privacy policy, we will post the new version on this page and update the
+            date. Significant changes will be communicated through in-app notifications.</span>
+    </p>
 
     <div class="contact">
-        <h2>联系我们</h2>
-        <p>如果您对本隐私政策有任何疑问，请通过以下方式联系我们：</p>
-        <p>📧 邮箱：<a href="mailto:akinal5765@gmail.com">akinal5765@gmail.com</a></p>
+        <h2>
+            <span class="zh">联系我们</span>
+            <span class="en">Contact Us</span>
+        </h2>
+        <p>
+            <span class="zh">如果您对本隐私政策有任何疑问，请通过以下方式联系我们：</span>
+            <span class="en">If you have any questions about this privacy policy, please contact us:</span>
+        </p>
+        <p>📧 <span class="zh">邮箱</span><span class="en">Email</span>：<a
+                href="mailto:akinal5765@gmail.com">akinal5765@gmail.com</a></p>
     </div>
 
     <footer>
         <p>© 2025 Layerlight. All rights reserved.</p>
     </footer>
+
+    <script>
+        function toggleLang() {
+            const html = document.documentElement;
+            html.lang = html.lang === 'en' ? 'zh-CN' : 'en';
+        }
+        // Auto-detect browser language
+        if (navigator.language && !navigator.language.startsWith('zh')) {
+            document.documentElement.lang = 'en';
+        }
+    </script>
 </body>
 
 </html>
