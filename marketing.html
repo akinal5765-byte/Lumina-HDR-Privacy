@@ -9,250 +9,249 @@
         content="Layerlight brings HDR brilliance to your photos. Reveal hidden depth and detail with professional-grade HDR editing.">
     <style>
         :root {
-            --bg: #0a0a0a;
-            --surface: #141414;
+            --bg: #000000;
+            --surface: #1c1c1e;
+            --surface-hover: #2c2c2e;
             --text: #ffffff;
-            --text-secondary: #888888;
-            --accent: #ff6b35;
-            --accent-glow: rgba(255, 107, 53, 0.3);
+            --text-secondary: #8e8e93;
+            --accent: #FF9500;
+            --accent-gradient: linear-gradient(135deg, #FF9500 0%, #FF5E3A 100%);
+            --glass: rgba(28, 28, 30, 0.6);
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
             background: var(--bg);
             color: var(--text);
-            line-height: 1.6;
-            min-height: 100vh;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* Language Switching */
+        [lang="zh"] {
+            display: none;
+        }
+
+        body.zh [lang="en"] {
+            display: none;
+        }
+
+        body.zh [lang="zh"] {
+            display: block;
+        }
+
+        body.zh [lang="zh"].inline {
+            display: inline;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
         /* Header */
         header {
-            padding: 24px 0;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(10, 10, 10, 0.9);
+            height: 64px;
+            background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             z-index: 100;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
         }
 
-        .header-content {
+        .header-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: var(--text);
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--accent), #ff8f5a);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-
-        .logo-text {
-            font-size: 24px;
             font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 15px;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
+            font-size: 20px;
             color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .lang-switch {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--text);
+            padding: 6px 12px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .lang-switch:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
 
         /* Hero */
         .hero {
-            padding: 160px 0 100px;
+            padding: 180px 0 100px;
             text-align: center;
             position: relative;
-            overflow: hidden;
         }
 
-        .hero::before {
+        /* Ambient Glow */
+        .hero::after {
             content: '';
             position: absolute;
-            top: 50%;
+            top: 40%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 149, 0, 0.15) 0%, transparent 70%);
             pointer-events: none;
+            z-index: -1;
         }
 
-        .hero h1 {
-            font-size: clamp(48px, 8vw, 80px);
+        h1 {
+            font-size: clamp(40px, 8vw, 72px);
             font-weight: 800;
-            letter-spacing: -2px;
+            letter-spacing: -0.02em;
             margin-bottom: 24px;
-            background: linear-gradient(135deg, var(--text) 0%, var(--text-secondary) 100%);
+            line-height: 1.1;
+        }
+
+        .gradient-text {
+            background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
-        .hero h1 span {
-            background: linear-gradient(135deg, var(--accent) 0%, #ff8f5a 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 20px;
+        .subtitle {
+            font-size: clamp(18px, 4vw, 24px);
             color: var(--text-secondary);
             max-width: 600px;
-            margin: 0 auto 40px;
+            margin: 0 auto 48px;
+            font-weight: 400;
         }
 
-        .app-store-badge {
+        .download-btn {
             display: inline-block;
-            transition: transform 0.2s, opacity 0.2s;
+            transition: transform 0.2s;
         }
 
-        .app-store-badge:hover {
-            transform: scale(1.05);
-            opacity: 0.9;
+        .download-btn:hover {
+            transform: scale(1.03);
         }
 
-        .app-store-badge img {
-            height: 54px;
+        .download-btn img {
+            height: 56px;
         }
 
         /* Features */
-        .features {
-            padding: 100px 0;
-        }
-
-        .features h2 {
-            text-align: center;
-            font-size: 40px;
-            font-weight: 700;
-            margin-bottom: 60px;
-            letter-spacing: -1px;
-        }
-
-        .features-grid {
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 24px;
+            padding: 80px 0;
         }
 
-        .feature-card {
+        .card {
             background: var(--surface);
-            border-radius: 20px;
+            border: 1px solid var(--border);
+            border-radius: 24px;
             padding: 32px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s, border-color 0.3s;
+            transition: transform 0.3s, background 0.3s;
         }
 
-        .feature-card:hover {
+        .card:hover {
             transform: translateY(-4px);
-            border-color: rgba(255, 107, 53, 0.3);
+            background: var(--surface-hover);
         }
 
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--accent), #ff8f5a);
-            border-radius: 12px;
+        .icon {
+            font-size: 32px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            margin-bottom: 20px;
         }
 
-        .feature-card h3 {
+        .card h3 {
             font-size: 20px;
-            font-weight: 600;
             margin-bottom: 12px;
         }
 
-        .feature-card p {
+        .card p {
             color: var(--text-secondary);
             font-size: 15px;
+            line-height: 1.6;
         }
 
-        /* How It Works */
-        .how-it-works {
+        /* Showcase */
+        .showcase {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.02);
             padding: 100px 0;
-            background: var(--surface);
         }
 
-        .how-it-works h2 {
+        .section-title {
             text-align: center;
-            font-size: 40px;
+            font-size: 32px;
             font-weight: 700;
             margin-bottom: 60px;
-            letter-spacing: -1px;
         }
 
         .steps {
             display: flex;
             justify-content: center;
-            gap: 48px;
+            gap: 60px;
             flex-wrap: wrap;
         }
 
         .step {
             text-align: center;
-            max-width: 280px;
+            max-width: 260px;
         }
 
-        .step-number {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, var(--accent), #ff8f5a);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
+        .step-num {
+            font-size: 14px;
             font-weight: 700;
-            margin: 0 auto 20px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            display: block;
         }
 
-        .step h3 {
+        .step h4 {
             font-size: 18px;
-            font-weight: 600;
             margin-bottom: 8px;
         }
 
@@ -261,210 +260,206 @@
             font-size: 15px;
         }
 
-        /* CTA */
-        .cta {
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .cta h2 {
-            font-size: 40px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-        }
-
-        .cta p {
-            color: var(--text-secondary);
-            font-size: 18px;
-            margin-bottom: 40px;
-        }
-
         /* Footer */
         footer {
-            padding: 40px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            padding: 60px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
         }
 
         .footer-links {
             display: flex;
+            justify-content: center;
             gap: 24px;
+            margin-bottom: 24px;
         }
 
         .footer-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 14px;
             transition: color 0.2s;
         }
 
         .footer-links a:hover {
             color: var(--text);
         }
-
-        .copyright {
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                padding: 120px 0 60px;
-            }
-
-            .hero p {
-                font-size: 18px;
-            }
-
-            .features,
-            .how-it-works,
-            .cta {
-                padding: 60px 0;
-            }
-
-            .features h2,
-            .how-it-works h2,
-            .cta h2 {
-                font-size: 32px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
     </style>
 </head>
 
 <body>
+
     <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="#" class="logo">
-                    <div class="logo-icon">✨</div>
-                    <span class="logo-text">Layerlight</span>
-                </a>
-                <nav class="nav-links">
-                    <a href="#features">Features</a>
-                    <a href="#how-it-works">How It Works</a>
-                    <a href="support.html">Support</a>
-                    <a href="privacy_policy.html">Privacy</a>
-                </nav>
-            </div>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span style="font-size: 24px; margin-right: 4px;">✦</span> Layerlight
+            </a>
+            <button class="lang-switch" onclick="toggleLang()">
+                <span lang="en">中文</span>
+                <span lang="zh">English</span>
+            </button>
         </div>
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section class="hero">
             <div class="container">
-                <h1>Reveal the <span>Light</span> Within</h1>
-                <p>Transform your photos with professional HDR editing. Bring out hidden depth and stunning highlights
-                    on your iPhone.</p>
-                <a href="https://apps.apple.com/app/layerlight" class="app-store-badge">
+                <h1>
+                    <span lang="en">Reveal the <span class="gradient-text">Light</span> Within</span>
+                    <span lang="zh">唤醒照片里的<span class="gradient-text">光</span></span>
+                </h1>
+
+                <p class="subtitle">
+                    <span lang="en">Professional HDR editing for iOS. Bring hidden depth and stunning highlights to
+                        life.</span>
+                    <span lang="zh">专为 iOS 打造的 HDR 图像编辑器。让照片重现肉眼所见的真实光影与层次。</span>
+                </p>
+
+                <a href="https://apps.apple.com/app/layerlight" class="download-btn">
                     <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                         alt="Download on the App Store">
                 </a>
             </div>
         </section>
 
-        <section class="features" id="features">
-            <div class="container">
-                <h2>Why Layerlight?</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">🌟</div>
-                        <h3>Instant HDR</h3>
-                        <p>Add authentic HDR glow to any photo—camera or phone. No complex settings required.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🎚️</div>
-                        <h3>Full Control</h3>
-                        <p>Fine-tune brightness, contrast, softness, and highlight intensity with precision sliders.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📱</div>
-                        <h3>Share Anywhere</h3>
-                        <p>Designed to keep HDR vivid on Instagram, Threads, WeChat, and more.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🎨</div>
-                        <h3>Premium Frames</h3>
-                        <p>Add elegant borders and custom watermarks to make your photos stand out.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📦</div>
-                        <h3>Batch Export</h3>
-                        <p>Edit and export multiple photos at once. Save time, keep consistency.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🔒</div>
-                        <h3>Privacy First</h3>
-                        <p>All editing happens on your device. Your photos are never uploaded anywhere.</p>
-                    </div>
+        <!-- Feature Grid -->
+        <div class="container">
+            <div class="grid">
+                <!-- Feature 1 -->
+                <div class="card">
+                    <div class="icon">⚡️</div>
+                    <h3>
+                        <span lang="en">Instant Radiance</span>
+                        <span lang="zh">一键光感</span>
+                    </h3>
+                    <p>
+                        <span lang="en">Turn standard photos into HDR masterpieces instantly. No complex curves, just
+                            pure light.</span>
+                        <span lang="zh">瞬间激活照片潜能，将普通照片转化为 HDR 杰作。无需复杂曲线，所见即所得。</span>
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="card">
+                    <div class="icon">🎚</div>
+                    <h3>
+                        <span lang="en">Precise Control</span>
+                        <span lang="zh">精准控制</span>
+                    </h3>
+                    <p>
+                        <span lang="en">Fine-tune Brightness, Contrast, and Softness with our smooth, haptic-enabled
+                            sliders.</span>
+                        <span lang="zh">通过丝滑的触感滑块，精准微调光感、反差与柔和度，把控每一丝光影。</span>
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="card">
+                    <div class="icon">🖼</div>
+                    <h3>
+                        <span lang="en">Designed for Sharing</span>
+                        <span lang="zh">为分享而生</span>
+                    </h3>
+                    <p>
+                        <span lang="en">Custom watermarks and frames. Optimized for Instagram, Threads, and WeChat HDR
+                            display.</span>
+                        <span lang="zh">内置高级边框与水印。深度兼容小红书、微信、Instagram 等平台的 HDR 显示。</span>
+                    </p>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section class="how-it-works" id="how-it-works">
+        <!-- How it works -->
+        <section class="showcase">
             <div class="container">
-                <h2>How It Works</h2>
+                <h2 class="section-title">
+                    <span lang="en">Simple, yet Powerful</span>
+                    <span lang="zh">简单，却强大</span>
+                </h2>
+
                 <div class="steps">
                     <div class="step">
-                        <div class="step-number">1</div>
-                        <h3>Choose a Photo</h3>
-                        <p>Select any photo from your library—HDR or standard.</p>
+                        <span class="step-num">Step 01</span>
+                        <h4>
+                            <span lang="en">Select</span>
+                            <span lang="zh">选择</span>
+                        </h4>
+                        <p>
+                            <span lang="en">Choose any photo from your library.</span>
+                            <span lang="zh">从相册中选择任意照片，支持 ProRAW。</span>
+                        </p>
                     </div>
+
                     <div class="step">
-                        <div class="step-number">2</div>
-                        <h3>Apply HDR Magic</h3>
-                        <p>Use presets or adjust sliders to reveal hidden highlights.</p>
+                        <span class="step-num">Step 02</span>
+                        <h4>
+                            <span lang="en">Enhance</span>
+                            <span lang="zh">增强</span>
+                        </h4>
+                        <p>
+                            <span lang="en">Adjust sliders to shape the light.</span>
+                            <span lang="zh">拖动滑块塑造光影，实时预览 HDR 效果。</span>
+                        </p>
                     </div>
+
                     <div class="step">
-                        <div class="step-number">3</div>
-                        <h3>Export & Share</h3>
-                        <p>Save in Apple, Universal, or social-optimized formats.</p>
+                        <span class="step-num">Step 03</span>
+                        <h4>
+                            <span lang="en">Export</span>
+                            <span lang="zh">导出</span>
+                        </h4>
+                        <p>
+                            <span lang="en">Save in Dolby Vision or Ultra HDR.</span>
+                            <span lang="zh">保存为 Apple 标准格式或 Ultra HDR 通用格式。</span>
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="cta">
-            <div class="container">
-                <h2>Ready to Transform Your Photos?</h2>
-                <p>Download Layerlight for free and unlock the HDR potential of your photos.</p>
-                <a href="https://apps.apple.com/app/layerlight" class="app-store-badge">
-                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                        alt="Download on the App Store">
-                </a>
-            </div>
-        </section>
     </main>
 
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-links">
-                    <a href="support.html">Support</a>
-                    <a href="privacy_policy.html">Privacy Policy</a>
-                    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Service</a>
-                </div>
-                <p class="copyright">© 2025 Layerlight. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="support.html">
+                    <span lang="en">Support</span>
+                    <span lang="zh">技术支持</span>
+                </a>
+                <a href="privacy_policy.html">
+                    <span lang="en">Privacy</span>
+                    <span lang="zh">隐私政策</span>
+                </a>
+                <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">
+                    <span lang="en">Terms</span>
+                    <span lang="zh">使用条款</span>
+                </a>
             </div>
+            <p>© 2025 Layerlight Team. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function toggleLang() {
+            document.body.classList.toggle('zh');
+            const isZh = document.body.classList.contains('zh');
+            localStorage.setItem('lang', isZh ? 'zh' : 'en');
+        }
+
+        // Auto-detect system language or load preference
+        (function () {
+            const saved = localStorage.getItem('lang');
+            if (saved === 'zh') {
+                document.body.classList.add('zh');
+            } else if (!saved) {
+                const userLang = navigator.language || navigator.userLanguage;
+                if (userLang.startsWith('zh')) {
+                    document.body.classList.add('zh');
+                }
+            }
+        })();
+    </script>
 </body>
 
 </html>
